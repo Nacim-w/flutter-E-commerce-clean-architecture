@@ -1,8 +1,11 @@
 import 'package:dbestech_ecomly/core/res/styles/colours.dart';
-import 'package:dbestech_ecomly/core/res/styles/text.dart';
+import 'package:dbestech_ecomly/core/services/injection_container.dart';
+import 'package:dbestech_ecomly/core/services/router.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await init();
   runApp(const MainApp());
 }
 
@@ -23,22 +26,16 @@ class MainApp extends StatelessWidget {
       ),
       useMaterial3: true,
     );
-    return  MaterialApp(
+    return  MaterialApp.router(
       themeMode: ThemeMode.system,
       title:'ecomly',
+      routerConfig: router,
       theme:theme,
       darkTheme: theme.copyWith(
         scaffoldBackgroundColor: Colours.darkThemeBGDark,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colours.darkThemeBGDark,
           foregroundColor: Colours.lightThemeWhiteColour,
-        ),
-      ),
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!',style: TextStyles.headingRegular.copyWith(
-            color: Colours.classicAdaptiveTextColour(context)
-          )),
         ),
       ),
     );

@@ -9,7 +9,7 @@ class Cache {
   String? _userId;
   final themeModeNotifier = ValueNotifier(ThemeMode.system);
 
-  String? get sessionToke => _sessionToken;
+  String? get sessionToken => _sessionToken;
 
   String? get userId => _userId;
 
